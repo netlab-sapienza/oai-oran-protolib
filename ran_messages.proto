@@ -116,4 +116,5 @@ message slicing_control_m{
     optional int32 sd = 2;
     required int32 min_ratio = 3;
     required int32 max_ratio = 4;
+    optional int32 dedicated_ratio = 5; // absent = leave this slice's dedicated_ratio unchanged
 }
