@@ -38,10 +38,24 @@ message RAN_indication_request{
 
 message RAN_indication_response{
     repeated RAN_param_map_entry param_map = 1;
+    // Optional testbed timing extension; not a standardized E2SM-KPM metric.
+    optional uint64 report_seq = 2;
+    optional uint64 sample_start_mono_ns = 3;
+    optional uint64 sample_end_mono_ns = 4;
+    optional uint64 sample_end_realtime_ns = 5;
+    optional string clock_id = 6;
+    optional string source_instance = 7;
+    optional uint64 control_id = 8;
+    optional uint64 control_received_mono_ns = 9;
+    optional uint64 control_handler_done_mono_ns = 10;
+    // First stable scheduler policy-reading pass after handler completion.
+    // This is NOT a packet transmission or delivery acknowledgment.
+    optional uint64 scheduler_observed_mono_ns = 11;
 }
 
 message RAN_control_request{
     repeated RAN_param_map_entry target_param_map = 1;
+    optional uint64 control_id = 2;
 }
 
 /* MASTER RAN MESSAGE */
